@@ -5,4 +5,13 @@ function stringReverse(str){
     return str.split('').reverse().join('');
 }
 
-console.log(stringReverse('report'))
+
+function stringReverse2(str){
+    let reversed =''
+
+    for(char of str){
+        reversed = char + reversed
+    }
+    return reversed
+}
+console.log(stringReverse2('character'))
