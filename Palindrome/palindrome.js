@@ -6,4 +6,11 @@ function Palindrome(str){
     return str ===  str.split('').reverse().join('')
 }
 
-console.log(Palindrome('abba'))
+function Palindrome2(str){
+    let result= str.split('').every((char, index) => {
+        return char ===  str[str.length - index]
+    })
+   return result
+}
+
+console.log(Palindrome('nursesrun'))
