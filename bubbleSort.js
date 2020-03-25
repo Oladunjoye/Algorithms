@@ -1,3 +1,8 @@
+//Description
+//bubble sort performs by bubbling the highest values to the end of the array
+//it uses two loops to track the original value and the subsequent compared values
+//it then swaps the the values depending on the magnitude
+
 
 //an unoptimized version of the bubble sort algorithm
 function bubbleSort1(arr){
@@ -41,10 +46,10 @@ function bubbleSort2(arr){
 }
 
 
-//  using es6 notation
+//  using es6 notation and further optimization
 
 const  bubbleSort3 = (arr) => {
- const swap = (arr,val1, val2) => {
+ const swap = (arr,val1, val2) => { 
      [arr[val1], arr[val2]] = [arr[val2],arr[val1]]
  }
 
