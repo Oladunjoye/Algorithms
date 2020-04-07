@@ -30,9 +30,7 @@ function merge(arr1, arr2){
 
     return newArr
 
-    // if(i < newArr.length -1){
-    //     [...newArr, ]
-    // }
+    
 }
 
 
