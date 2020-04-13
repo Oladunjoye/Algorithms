@@ -17,7 +17,7 @@ class SingleLinkedList{
         this.tail = null
         this.length = 0
 
-    }
+    } 
 
       isEmpty (){
         return (!this.head)
@@ -165,15 +165,15 @@ class SingleLinkedList{
 
 
 
-        return this
+        return true
     }
 
     insert(index, value){
         const newNode = new Node(value)
         if(index< 0 || index > this.length) return false
-        else if(index === this.length)this.push(value)
-       else if(index === 0) this.unshift(value)
-       else{
+        if(index === this.length) return this.push(value)
+        if(index === 0)  return  this.unshift(value)
+       
            const prevNode =  this.get(index-1)
            const  {val, next} = prevNode
 
@@ -181,12 +181,62 @@ class SingleLinkedList{
 
            
 
-       }
+       
        this.length++
-       return true
+       return this
 
 
     }
+
+
+    remove(index){
+
+        if(index < 1 || index > this.length) return null
+        if(index === 1) return this.shift()
+        if(index === this.length) return this.pop()
+
+        let prevNode = this.get(index - 1)
+        let actualNode = prevNode.next
+        let {val, next} =  prevNode
+
+        next = actualNode.next
+        this.length --
+        return  next
+
+
+    }
+
+
+    print(){
+        let arr = []
+        let current = this.head
+        while(current){
+
+            arr.push(current.val)
+            current = current.next
+        }
+        console.log(arr)
+    }
+    reverse(){
+       
+        let node = this.head
+        this.head = this.tail
+        this.tail =  node
+
+        let prev = null
+        let next
+
+        for(let i = 0; i < this.length; i++){
+
+            next = node.next
+            node.next =prev
+            prev = node
+            node = next
+
+
+        }
+    }
+
 }
 
 let list = new SingleLinkedList()
@@ -194,12 +244,19 @@ list.push('Joye')
 list.push('Show')
 list.push('Tile')
 list.push('4')
-list.push('5')
-list.push('6')
-list.push('7')
+list.reverse()
+// list.push('5')
+// list.push('6')
+// list.push('7')
 
 // list.pop()
-console.log(list.insert(1,'2'))
+// console.log(list.insert(1,'2'))
+// console.log(list.insert(8,'2'))
+// console.log(list.insert(0,'Zero'))
+// console.log(list.remove(2))
+
+
+
 
 // list.traverse()
 // console.log(list)
