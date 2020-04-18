@@ -39,6 +39,9 @@ class Stack {
 
     remove(){
         if(this.length < 1) return undefined
+        if(this.length === 1){
+            this.tail = null
+        }
 
         let current = this.head
 
@@ -64,4 +67,8 @@ stack.add(4)
 
 console.log(stack.remove())
 console.log(stack.remove())
+console.log(stack.remove())
+console.log(stack.remove())
+
+
 console.log(stack)
