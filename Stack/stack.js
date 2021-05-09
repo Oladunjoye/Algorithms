@@ -1,74 +1,106 @@
-// LIFO OR PUSH & POP DATA STRUCTURE
+// // LIFO OR PUSH & POP DATA STRUCTURE
 
-class Node{
-    constructor(val){
-        this.val = val
-        this.next =  null
+'use strict';
+module.exports = class Stack {
+  constructor() {
+    this.items = [];
+    this.top = null;
+  }
 
-    }
-}
+  getTop() {
+    if (this.items.length == 0) return null;
+    return this.top;
+  }
 
-class Stack {
+  isEmpty() {
+    return this.items.length == 0;
+  }
 
-    constructor(){
-        this.head = null
-        this.tail = null
-        this.length = 0
+  size() {
+    return this.items.length;
+  }
 
-    }
+  push(element) {
+    this.items.push(element);
+    this.top = element;
+  }
 
-    add(val){
+  pop() {
+    if (this.items.length != 0) {
+      if (this.items.length == 1) {
+        this.top = null;
+        return this.items.pop();
+      } else {
+        this.top = this.items[this.items.length - 2];
+        return this.items.pop();
+      }
+    } else return null;
+  }
+};
+// class Node{
+//     constructor(val){
+//         this.val = val
+//         this.next =  null
 
-        let newNode =  new Node(val)
-        if(!this.head){
-            this.head = newNode
-            this.tail = newNode
+//     }
+// }
 
-        }
-        else{
-            let current= this.head
-            newNode.next =  current
-            this.head =  newNode
-        }
+// class Stack {
 
-        this.length++
+//     constructor(){
+//         this.head = null
+//         this.tail = null
+//         this.length = 0
 
-        return this
+//     }
 
-    }
+//     add(val){
 
-    remove(){
-        if(this.length < 1) return undefined
-        if(this.length === 1){
-            this.tail = null
-        }
+//         let newNode =  new Node(val)
+//         if(!this.head){
+//             this.head = newNode
+//             this.tail = newNode
 
-        let current = this.head
+//         }
+//         else{
+//             let current= this.head
+//             newNode.next =  current
+//             this.head =  newNode
+//         }
 
-        this.head =  current.next
+//         this.length++
 
+//         return this
 
-        current.next = null
-        this.length--
+//     }
 
-        return current
+//     remove(){
+//         if(this.length < 1) return undefined
+//         if(this.length === 1){
+//             this.tail = null
+//         }
 
+//         let current = this.head
 
-    }
-}
+//         this.head =  current.next
 
-let stack = new Stack()
-stack.add(1)
-stack.add(2)
-stack.add(3)
-stack.add(4)
+//         current.next = null
+//         this.length--
 
+//         return current
 
+//     }
+// }
 
-console.log(stack.remove())
-console.log(stack.remove())
-console.log(stack.remove())
-console.log(stack.remove())
+// let stack = new Stack()
+// stack.add(1)
+// stack.add(2)
+// stack.add(3)
+// stack.add(4)
 
+// console.log(stack.remove())
+// console.log(stack.remove())
+// console.log(stack.remove())
+// console.log(stack.remove())
 
-console.log(stack)
+// console.log(stack)

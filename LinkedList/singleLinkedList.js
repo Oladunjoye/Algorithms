@@ -177,6 +177,10 @@ class SingleLinkedList{
            const prevNode =  this.get(index-1)
            const  {val, next} = prevNode
 
+           //check again
+         prevNode.next= newNode
+           //
+
            newNode.next  = next
 
            
