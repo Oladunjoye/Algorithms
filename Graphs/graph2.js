@@ -1,4 +1,22 @@
 const Stack = require('../Stack/stack');
+// const Queue = require('../Stack/Queue');
+
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(val) {
+    this.items.push(val);
+  }
+  dequeue() {
+    return this.items.shift();
+  }
+
+  length() {
+    return this.items.length;
+  }
+}
 
 class Graph {
   constructor() {
@@ -96,6 +114,36 @@ class Graph {
 
     return result;
   }
+
+  breadthFirst(start) {
+    let result = [];
+    let visited = {};
+    let queue = new Queue();
+    let currentNode;
+    queue.enqueue(start);
+    visited[start] = true;
+
+    while (queue.length() > 0) {
+      // console.log(queue);
+
+      currentNode = queue.dequeue();
+      result.push(currentNode);
+
+      if (!this.adjacencyList[currentNode]) {
+        continue;
+      } else {
+        this.adjacencyList[currentNode].forEach((neighbour) => {
+          // console.log(neighbour);
+          if (!visited[neighbour]) {
+            visited[neighbour] = true;
+            queue.enqueue(neighbour);
+          }
+        });
+      }
+    }
+
+    return result;
+  }
 }
 
 let g = new Graph();
@@ -114,8 +162,11 @@ g.addEdge('Tope', 4);
 g.addEdge('Tope', 2);
 g.removeEdge('Tope', 2);
 
-console.log(g.depthFirstIterative(1));
-// g.removeVertex(1);
-
 console.log(g.adjacencyList);
 
+console.log(g.breadthFirst(1));
+// console.log(g.depthFirstIterative(1));
+
+// g.removeVertex(1);
+
+// console.log(g.adjacencyList);

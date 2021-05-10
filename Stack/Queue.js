@@ -44,6 +44,7 @@ class Queue {
   }
 }
 
+module.exports = Queue;
 let q = new Queue();
 
 q.enqueue(1);
