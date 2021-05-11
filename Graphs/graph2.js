@@ -18,7 +18,7 @@ class Queue {
   }
 }
 
-class Graph {
+module.exports = class Graph {
   constructor() {
     this.adjacencyList = {};
   }
