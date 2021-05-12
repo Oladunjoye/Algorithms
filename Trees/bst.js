@@ -72,12 +72,24 @@ class BST {
     }
   }
 
+  //left-root-right
+
   inOrderTraversal(currentNode) {
     if (currentNode != null) {
       this.preOrderTraversal(currentNode.left);
       console.log(currentNode.value);
 
       this.preOrderTraversal(currentNode.right);
+    }
+  }
+
+  //left-right-root
+  postOrderTraversal(currentNode) {
+    if (currentNode != null) {
+      this.preOrderTraversal(currentNode.left);
+
+      this.preOrderTraversal(currentNode.right);
+      console.log(currentNode.value);
     }
   }
 }
@@ -108,5 +120,7 @@ tree.insertIterative(23);
 tree.preOrderTraversal(tree.root);
 console.log('********');
 tree.inOrderTraversal(tree.root);
+console.log('********');
+tree.postOrderTraversal(tree.root);
 
 // console.log(tree);
