@@ -63,6 +63,7 @@ class BST {
     this.insertHelper(this.root, newValue);
   }
 
+  //root-left-right
   preOrderTraversal(currentNode) {
     if (currentNode != null) {
       console.log(currentNode.value);
@@ -105,6 +106,7 @@ tree.insertIterative(11);
 
 tree.insertIterative(23);
 tree.preOrderTraversal(tree.root);
+console.log('********');
 tree.inOrderTraversal(tree.root);
 
 // console.log(tree);
