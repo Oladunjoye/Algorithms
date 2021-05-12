@@ -62,6 +62,14 @@ class BST {
     let currentNode = this.root;
     this.insertHelper(this.root, newValue);
   }
+
+  preOrderTraversal(currentNode) {
+    while (currentNode) {
+      console.log(currentNode.value);
+      this.preOrderTraversal(currentNode.left);
+      this.preOrderTraversal(currentNode.right);
+    }
+  }
 }
 
 // let rootNode = new Node(7);
@@ -69,15 +77,24 @@ class BST {
 // tree.left = new Node(5);
 // tree.right = new Node(12);
 
-let tree = new BST();
+let tree = new BST(10);
 
 tree.insertRecursive(7);
+tree.insertRecursive(9);
 
 tree.insertRecursive(1);
 
 tree.insertIterative(71);
-// tree.insertIterative(4);
-// tree.insertIterative(14);
-// tree.insertIterative(1);
+tree.insertIterative(81);
 
-console.log(tree.root);
+tree.insertIterative(4);
+tree.insertIterative(14);
+tree.insertIterative(1);
+tree.insertIterative(3);
+tree.insertIterative(5);
+tree.insertIterative(11);
+
+tree.insertIterative(23);
+// tree.preOrderTraversal(tree.root);
+
+console.log(tree);
