@@ -64,7 +64,7 @@ class BST {
   }
 
   preOrderTraversal(currentNode) {
-    while (currentNode) {
+    while (currentNode != null) {
       console.log(currentNode.value);
       this.preOrderTraversal(currentNode.left);
       this.preOrderTraversal(currentNode.right);
