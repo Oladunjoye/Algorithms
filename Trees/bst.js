@@ -64,9 +64,18 @@ class BST {
   }
 
   preOrderTraversal(currentNode) {
-    while (currentNode != null) {
+    if (currentNode != null) {
       console.log(currentNode.value);
       this.preOrderTraversal(currentNode.left);
+      this.preOrderTraversal(currentNode.right);
+    }
+  }
+
+  inOrderTraversal(currentNode) {
+    if (currentNode != null) {
+      this.preOrderTraversal(currentNode.left);
+      console.log(currentNode.value);
+
       this.preOrderTraversal(currentNode.right);
     }
   }
@@ -95,6 +104,7 @@ tree.insertIterative(5);
 tree.insertIterative(11);
 
 tree.insertIterative(23);
-// tree.preOrderTraversal(tree.root);
+tree.preOrderTraversal(tree.root);
+tree.inOrderTraversal(tree.root);
 
-console.log(tree);
+// console.log(tree);
