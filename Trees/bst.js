@@ -40,6 +40,28 @@ class BST {
 
     return this.root;
   }
+
+  insertHelper(currentNode, newValue) {
+    if (currentNode === null) {
+      currentNode = new Node(newValue);
+    } else if (newValue < currentNode.value) {
+      currentNode.left = this.insertHelper(currentNode.left, newValue);
+    } else {
+      currentNode.right = this.insertHelper(currentNode.right, newValue);
+    }
+
+    return currentNode;
+  }
+
+  insertRecursive(newValue) {
+    if (!this.root.value) {
+      this.root = new Node(newValue);
+      return;
+    }
+
+    let currentNode = this.root;
+    this.insertHelper(this.root, newValue);
+  }
 }
 
 // let rootNode = new Node(7);
@@ -49,9 +71,13 @@ class BST {
 
 let tree = new BST();
 
-tree.insertIterative(7);
-tree.insertIterative(4);
-tree.insertIterative(14);
-tree.insertIterative(1);
+tree.insertRecursive(7);
 
-console.log(tree);
+tree.insertRecursive(1);
+
+tree.insertIterative(71);
+// tree.insertIterative(4);
+// tree.insertIterative(14);
+// tree.insertIterative(1);
+
+console.log(tree.root);
