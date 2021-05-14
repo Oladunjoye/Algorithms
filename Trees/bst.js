@@ -124,6 +124,17 @@ class BST {
     }
     return currentNode;
   }
+
+  deleteNode(value) {
+    let currentNode = thhis.root;
+
+    // if null
+    if (value == null || currentNode == null) {
+      return null;
+    }
+
+
+  }
 }
 
 // let rootNode = new Node(7);
