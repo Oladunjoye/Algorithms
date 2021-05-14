@@ -96,7 +96,6 @@ class BST {
   bstHelper(current, node) {
     if (current !== null) {
       if (current.value === node) {
-        // console.log(current);
         return current;
       } else if (node > current.value) {
         return this.bstHelper(current.right, node);
@@ -111,6 +110,19 @@ class BST {
   binarySearch(node) {
     let current = this.root;
     return this.bstHelper(current, node);
+  }
+
+  binarySearchIterative(nodeValue) {
+    let currentNode = this.root;
+
+    while (currentNode != null) {
+      if (nodeValue > currentNode.value) {
+        currentNode = currentNode.left;
+      } else {
+        currentNode = currentNode.right;
+      }
+    }
+    return currentNode;
   }
 }
 
@@ -143,5 +155,7 @@ tree.insertIterative(11);
 // console.log('********');
 // tree.postOrderTraversal(tree.root);
 
-console.log(tree.binarySearch(14));
+// console.log(tree.binarySearch(14));
+console.log(tree.binarySearch(4));
+
 // console.log(tree);
