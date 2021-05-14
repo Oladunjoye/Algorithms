@@ -92,6 +92,26 @@ class BST {
       console.log(currentNode.value);
     }
   }
+
+  bstHelper(current, node) {
+    if (current !== null) {
+      if (current.value === node) {
+        // console.log(current);
+        return current;
+      } else if (node > current.value) {
+        return this.bstHelper(current.right, node);
+      } else {
+        return this.bstHelper(current.left, node);
+      }
+    } else {
+      return null;
+    }
+  }
+
+  binarySearch(node) {
+    let current = this.root;
+    return this.bstHelper(current, node);
+  }
 }
 
 // let rootNode = new Node(7);
@@ -116,11 +136,12 @@ tree.insertIterative(3);
 tree.insertIterative(5);
 tree.insertIterative(11);
 
-tree.insertIterative(23);
-tree.preOrderTraversal(tree.root);
-console.log('********');
-tree.inOrderTraversal(tree.root);
-console.log('********');
-tree.postOrderTraversal(tree.root);
+// tree.insertIterative(23);
+// tree.preOrderTraversal(tree.root);
+// console.log('********');
+// tree.inOrderTraversal(tree.root);
+// console.log('********');
+// tree.postOrderTraversal(tree.root);
 
+console.log(tree.binarySearch(14));
 // console.log(tree);
