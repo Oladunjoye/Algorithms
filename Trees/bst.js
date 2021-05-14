@@ -130,9 +130,9 @@ class BST {
 
     // if null
     if (value == null || currentNode == null) {
-      return null;
+      return false;
     }
-
+    
 
   }
 }
