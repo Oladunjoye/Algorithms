@@ -126,15 +126,23 @@ class BST {
   }
 
   deleteNode(value) {
-    let currentNode = thhis.root;
+    // let currentNode = this.root;
 
-    // if null
-    if (value == null || currentNode == null) {
+    //case 1: empty tree or null root
+    if (value == null) {
       return false;
     }
-    
 
+    //case 2: value not found in tree
+
+    // while (currentNode || currentNode.val !== null) {
+    currentNode = this.binarySearchIterative(value);
+    // }
+
+    if (currentNode === null) return currentNode ? currentNode : false;
   }
+
+
 }
 
 // let rootNode = new Node(7);
