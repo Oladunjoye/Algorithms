@@ -83,6 +83,16 @@ class BST {
     }
   }
 
+  //in order backwards
+
+  inOrderTraversalBack(currentNode) {
+    if (currentNode != null) {
+      this.inOrderTraversalBack(currentNode.right);
+      console.log(currentNode.value);
+      this.inOrderTraversalBack(currentNode.left);
+    }
+  }
+
   //left-right-root
   postOrderTraversal(currentNode) {
     if (currentNode != null) {
@@ -142,7 +152,23 @@ class BST {
     if (currentNode === null) return currentNode ? currentNode : false;
   }
 
+   findKthMax(rootNode,k){
 
+    let result = []
+      function traverseBack(current){
+    
+        if(current != null){
+          traverseBack(current.rightChild)
+          result.push(current.val)
+          traverseBack(current.leftChild)
+    
+        }
+    
+      }
+    
+      traverseBack(rootNode)
+      return result[k-1];
+    }
 }
 
 // let rootNode = new Node(7);
@@ -170,11 +196,11 @@ tree.insertIterative(11);
 // tree.insertIterative(23);
 // tree.preOrderTraversal(tree.root);
 // console.log('********');
-// tree.inOrderTraversal(tree.root);
+tree.inOrderTraversalBack(tree.root);
 // console.log('********');
 // tree.postOrderTraversal(tree.root);
 
 // console.log(tree.binarySearch(14));
-console.log(tree.binarySearch(4));
+// console.log(tree.binarySearch(4));
 
 // console.log(tree);
