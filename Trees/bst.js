@@ -137,14 +137,15 @@ class BST {
 
   deleteNode(value) {
     let currentNode = this.root;
+    let parent;
 
     //case 1: empty tree or null root
     if (value == null) {
       return false;
     }
 
-
     while (currentNode != null && currentNode.val != value) {
+      parent = currentNode;
       if (value >= currentNode.val) {
         currentNode = currentNode.rightChild;
       } else {
@@ -157,18 +158,24 @@ class BST {
       return false;
     }
     //case 3 value found:  leaf node
-
-    else if(currentNode.leftChild === null && currentNode.rightChild === null){
-
+    else if (
+      currentNode.leftChild === null &&
+      currentNode.rightChild === null
+    ) {
+      //check if node is root node
+      if (currentNode === this.root) {
+        this.root = null;
+        return true;
+      } else if (value < parent.value) {
+        parent.leftChild = null;
+        return true;
+      } else {
+        parent.rightChild = null;
+        return true;
+      }
+    } else if (currentNode.leftChild === null) {
+    } else if (currentNode.rightChild === null) {
     }
-
-    else if(currentNode.leftChild === null){
-
-    }
-    else if(currentNode.rightChild === null){
-
-    }
-
 
     //case 4 value found:  has one child-right
 
