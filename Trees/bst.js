@@ -136,39 +136,60 @@ class BST {
   }
 
   deleteNode(value) {
-    // let currentNode = this.root;
+    let currentNode = this.root;
 
     //case 1: empty tree or null root
     if (value == null) {
       return false;
     }
 
+
+    while (currentNode != null && currentNode.val != value) {
+      if (value >= currentNode.val) {
+        currentNode = currentNode.rightChild;
+      } else {
+        currentNode = currentNode.leftChild;
+      }
+    }
     //case 2: value not found in tree
 
-    // while (currentNode || currentNode.val !== null) {
-    currentNode = this.binarySearchIterative(value);
-    // }
+    if (currentNode === null) {
+      return false;
+    }
+    //case 3 value found:  leaf node
 
-    if (currentNode === null) return currentNode ? currentNode : false;
+    else if(currentNode.leftChild === null && currentNode.rightChild === null){
+
+    }
+
+    else if(currentNode.leftChild === null){
+
+    }
+    else if(currentNode.rightChild === null){
+
+    }
+
+
+    //case 4 value found:  has one child-right
+
+    //case 5 value found:  has one child-left
+
+    //case 6 value found:  has two children
   }
 
-   findKthMax(rootNode,k){
-
-    let result = []
-      function traverseBack(current){
-    
-        if(current != null){
-          traverseBack(current.rightChild)
-          result.push(current.val)
-          traverseBack(current.leftChild)
-    
-        }
-    
+  findKthMax(rootNode, k) {
+    let result = [];
+    function traverseBack(current) {
+      if (current != null) {
+        traverseBack(current.rightChild);
+        result.push(current.val);
+        traverseBack(current.leftChild);
       }
-    
-      traverseBack(rootNode)
-      return result[k-1];
     }
+
+    traverseBack(rootNode);
+    return result[k - 1];
+  }
 }
 
 // let rootNode = new Node(7);
