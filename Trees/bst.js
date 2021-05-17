@@ -183,7 +183,14 @@ class BST {
 
     else if (currentNode.leftChild === null) {
 
-      
+      //check if node is root node
+      if(currentNode.val === this.root.val){
+
+        this.root = currentNode.rightChild
+        return true
+      }
+
+
     } else if (currentNode.rightChild === null) {
     }
 
