@@ -166,18 +166,27 @@ class BST {
       if (currentNode === this.root) {
         this.root = null;
         return true;
-      } else if (value < parent.value) {
+      }
+      // check if its left child
+      else if (value < parent.value) {
         parent.leftChild = null;
         return true;
-      } else {
+      }
+      // check if its right child
+      else {
         parent.rightChild = null;
         return true;
       }
-    } else if (currentNode.leftChild === null) {
+    }
+    
+    //case 4 value found:  has one child-right
+
+    else if (currentNode.leftChild === null) {
+
+      
     } else if (currentNode.rightChild === null) {
     }
 
-    //case 4 value found:  has one child-right
 
     //case 5 value found:  has one child-left
 
