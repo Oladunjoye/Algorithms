@@ -23,12 +23,16 @@ class Trie {
   }
 
   getIndex(letter) {
-    //return the index to be used for the children array 
+    //return the index to be used for the children array
     return letter.charCodeAt() - 'a'.charCodeAt();
   }
 
-  insert(key, value) {
-    
+  insert(key) {
+    if (key === null) {
+      return false;
+    }
+
+    key = key.toLowerCase();
   }
 
   search(key) {}
