@@ -210,7 +210,7 @@ class BST {
     else {
       let minRight = currentNode.rightChild;
 
-      while (minRight != null) {
+      while (minRight.leftChild != null) {
         minRight = minRight.leftChild;
       }
 
