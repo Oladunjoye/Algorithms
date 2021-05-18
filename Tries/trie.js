@@ -33,11 +33,11 @@ class Trie {
     }
 
     let current = this.root;
-    let index
+    let index;
     key = key.toLowerCase();
 
     for (let level = 0; level < key.length; level++) {
-     index = this.getIndex(key[level]);
+      index = this.getIndex(key[level]);
 
       if (current.children[index] === null) {
         current.children[index] = new TrieNode(key[level]);
@@ -49,7 +49,26 @@ class Trie {
     current.markAsLeaf();
   }
 
-  search(key) {}
+  search(key) {
+    let current = this.root;
+    let index = 0;
+
+    for (let level = 0; level < key.length; level++) {
+      index = this.getIndex(key[level]);
+
+      if (current.children[index] === null) {
+        return false;
+      }
+
+      current = current.children[index];
+    }
+
+    if (current != null && current.isEndWord) {
+      return true;
+    }
+
+    return false;
+  }
 
   delete(key) {}
 }
