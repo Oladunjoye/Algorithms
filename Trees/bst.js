@@ -185,21 +185,30 @@ class BST {
       if (currentNode.val === this.root.val) {
         this.root = currentNode.rightChild;
         return true;
+      } else if (currentNode.val > parent.val) {
+        parent.leftChild = currentNode.rightChild;
+        return true;
+      } else {
+        parent.rightChild = currentNode.rightChild;
       }
-
-      else if(currentNode.val > parent.val){
-        parent.leftChild =  
-
+    }
+    //case 5 value found:  has one child-left
+    else if (currentNode.rightChild === null) {
+      //check if node is root node
+      if (currentNode.val === this.root.val) {
+        this.root = currentNode.leftChild;
+        return true;
+      } else if (currentNode.val > parent.val) {
+        parent.leftChild = currentNode.leftChild;
+        return true;
+      } else {
+        parent.rightChild = currentNode.leftChild;
       }
-      else{
-
-      }
-    } else if (currentNode.rightChild === null) {
     }
 
-    //case 5 value found:  has one child-left
-
     //case 6 value found:  has two children
+
+    
   }
 
   findKthMax(rootNode, k) {
