@@ -32,11 +32,21 @@ class Trie {
       return false;
     }
 
+    let current = this.root;
+    let index
     key = key.toLowerCase();
 
-    for(let level =0; level < key.length; level++){
-      
+    for (let level = 0; level < key.length; level++) {
+     index = this.getIndex(key[level]);
+
+      if (current.children[index] === null) {
+        current.children[index] = new TrieNode(key[level]);
+      }
+
+      current = current.children[index];
     }
+
+    current.markAsLeaf();
   }
 
   search(key) {}
