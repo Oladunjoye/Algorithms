@@ -33,6 +33,10 @@ class Trie {
     }
 
     key = key.toLowerCase();
+
+    for(let level =0; level < key.length; level++){
+      
+    }
   }
 
   search(key) {}
