@@ -207,8 +207,21 @@ class BST {
     }
 
     //case 6 value found:  has two children
+    else {
+      let minRight = currentNode.rightChild;
 
-    
+      while (minRight != null) {
+        minRight = minRight.leftChild;
+      }
+
+      let temp = minRight.val;
+
+      this.deleteNode(this.root, minRight.val);
+
+      currentNode.val = temp;
+
+      return true;
+    }
   }
 
   findKthMax(rootNode, k) {
