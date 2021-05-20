@@ -72,3 +72,9 @@ class Trie {
 
   delete(key) {}
 }
+
+let a = 'ab';
+
+a += 'cd';
+
+console.log(a);
