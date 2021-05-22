@@ -49,5 +49,25 @@ class MaxHeap {
     }
   }
 
-  maxHeapify() {}
+  maxHeapify(index) {
+    let left = 2 * index + 1;
+    let right = 2 * index + 2;
+
+    let largest = index;
+    if (this.elements > left && this.heap[largest] < this.heap[left]) {
+      largest = left;
+    }
+
+    if (this.elements > right && this.heap[largest] < this.heap[right]) {
+      largest = right;
+    }
+
+    if (largest != index) {
+      let temp = this.heap[index];
+      this.heap[index] = this.heap[largest];
+      this.heap[largest] = temp;
+
+      this.maxHeapify(largest);
+    }
+  }
 }
