@@ -38,10 +38,6 @@ class MaxHeap {
     this.values.pop();
     let parent = 0;
     let [leftIndex, rightIndex, maxIndex] = this.getIndexes(0);
-    // let leftIndex = 2 * parent + 1;
-    // let rightIndex = 2 * parent + 2;
-    // let maxIndex =
-    //   this.values[leftIndex] > this.val[rightIndex] ? leftIndex : rightIndex;
 
     while (this.values[parent] < this.values[maxIndex]) {
       let temp = this.values[maxIndex];
@@ -49,7 +45,9 @@ class MaxHeap {
       this.values[parent] = temp;
 
       //update values
-      [leftIndex, rightIndex, maxIndex] = this.getIndexes(maxIndex);
+      let [, , newMaxIndex] = this.getIndexes(maxIndex);
+      parent = maxIndex;
+      maxIndex = newMaxIndex;
     }
 
     //get the highest -- root node
@@ -75,7 +73,7 @@ heap.insert(13);
 heap.insert(24);
 
 heap.extractMax();
-// heap.extractMax();
+heap.extractMax();
 // heap.extractMax();
 
 console.log(heap.values);
