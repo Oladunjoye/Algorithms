@@ -34,8 +34,17 @@ class MaxHeap {
 
   extractMax() {
     // let values = this.values
-    this.values[0] = this.values[this.values.length - 1];
-    this.values.pop();
+    //edge cases
+
+    if (this.values.length < 1) {
+      return null;
+    }
+    if (this.values.length === 1) {
+      return this.values.pop();
+    }
+
+    let result = this.values[0];
+    this.values[0] = this.values.pop();
     let parent = 0;
     let [leftIndex, rightIndex, maxIndex] = this.getIndexes(0);
 
@@ -54,7 +63,8 @@ class MaxHeap {
     // compare with left and right child
     // swap with the higher value
     //set new index to the higher selected index
-    // repeat
+    // repeat4
+    return result;
   }
 }
 
@@ -72,8 +82,21 @@ heap.insert(9);
 heap.insert(13);
 heap.insert(24);
 
-heap.extractMax();
-heap.extractMax();
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+
+// heap.extractMax();
 // heap.extractMax();
 
 console.log(heap.values);
