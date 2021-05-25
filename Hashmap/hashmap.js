@@ -4,6 +4,8 @@ class Hashmap{
   }
 
   insert(key, value){
-    
+
   }
 }
+
+//use native objects instead
