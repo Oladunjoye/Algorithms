@@ -237,34 +237,62 @@ class BST {
     traverseBack(rootNode);
     return result[k - 1];
   }
+
+  breadthFirstSearch(){
+
+    let node = this.root
+    let queue = [];
+    let result = [];
+
+    queue.push(node)
+
+    while(queue.length){
+      node = queue.shift();
+      result.push(node.value);
+      if(node.left) queue.push(node.left)
+      if(node.right) queue.push(node.right)
+
+    }
+
+    return result;
+  }
 }
 
 // let rootNode = new Node(7);
 // let tree = new BST(7);
 // tree.left = new Node(5);
 // tree.right = new Node(12);
-
+console.log("yes")
 let tree = new BST(10);
 
-tree.insertRecursive(7);
-tree.insertRecursive(9);
-
-tree.insertRecursive(1);
-
-tree.insertIterative(71);
-tree.insertIterative(81);
-
-tree.insertIterative(4);
-tree.insertIterative(14);
-tree.insertIterative(1);
+tree.insertIterative(6);
+tree.insertIterative(15);
 tree.insertIterative(3);
-tree.insertIterative(5);
-tree.insertIterative(11);
+tree.insertIterative(8);
+tree.insertIterative(20);
+// tree.insertIterative(6);
+// tree.insertIterative(6);
+
+// tree.insertRecursive(7);
+// tree.insertRecursive(9);
+
+// tree.insertRecursive(1);
+
+// tree.insertIterative(71);
+// tree.insertIterative(81);
+
+// tree.insertIterative(4);
+// tree.insertIterative(14);
+// tree.insertIterative(1);
+// tree.insertIterative(3);
+// tree.insertIterative(5);
+// tree.insertIterative(11);
 
 // tree.insertIterative(23);
 // tree.preOrderTraversal(tree.root);
 // console.log('********');
-tree.inOrderTraversalBack(tree.root);
+// tree.inOrderTraversalBack(tree.root);
+console.log(tree.breadthFirstSearch());
 // console.log('********');
 // tree.postOrderTraversal(tree.root);
 
@@ -272,3 +300,24 @@ tree.inOrderTraversalBack(tree.root);
 // console.log(tree.binarySearch(4));
 
 // console.log(tree);
+function twoValueSum(arr, target){
+
+  array.sort((a,b)=> a-b)
+  let left = 0;
+  let right = array.length-1
+
+  while(left < right){
+
+    let sum = array[left] + array[right]
+
+    if(sum == target){
+      return [array[left], array[right]]
+    }
+    else if(sum > target){
+      right--
+    }
+    else{
+      left++
+    }
+  }
+}
