@@ -1,20 +1,23 @@
-function howSum(numbers, target) {
+function howSum(numbers, target, memo= {}) {
   // base cases
+  if(target in memo) return memo[target]
   if (target == 0) return [];
   if (target < 0) return null;
 
-  let result = [];
   for (let num of numbers) {
     let newTarget = target - num;
 
-    let value = howSum(numbers, newTarget);
+    let value = howSum(numbers, newTarget, memo);
 
     if (value) {
       value.push(num);
+
+      memo[target] = value
       return value;
     }
   }
 
+  memo[target] = null
   return null;
 }
 
