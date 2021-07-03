@@ -1,5 +1,6 @@
-function bestSum(numbers, target){
+function bestSum(numbers, target, memo= {}){
 
+  if(target in memo)return memo[target]
   if(target == 0) return []
   if(target <  0) return null
 
@@ -7,19 +8,20 @@ function bestSum(numbers, target){
   for(let num of numbers){
     let newTarget = target - num
 
-    let value = bestSum(numbers, newTarget)
+    let value = bestSum(numbers, newTarget, memo)
 
     if(value ){
       let combination = [...value, num]
 
       if(result === null || combination.length < result.length){
         result = combination
+        memo[target] = result
       }
     }
  
    
   }
- 
+ memo[target] = result
   return result
 }
 
