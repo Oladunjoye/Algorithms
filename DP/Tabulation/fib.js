@@ -6,7 +6,11 @@ function fibonacci(n) {
     array[i] = array[i - 1] + array[i - 2];
   }
 
-  return array[n + 1];
+  return array[n];
 }
 
 console.log(fibonacci(3));
+console.log(fibonacci(6));
+console.log(fibonacci(7));
+console.log(fibonacci(8));
+console.log(fibonacci(50));
