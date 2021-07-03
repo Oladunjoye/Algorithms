@@ -15,7 +15,10 @@ result.push(...newWay)
 }
 
 }
+
+return result 
 }
 
+console.log(allConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']));
 
-console.log(allConstruct("", [""]))
+// console.log(allConstruct("", [""]))
