@@ -25,3 +25,4 @@ function bestSum(numbers, target){
 
 
 console.log(bestSum([6,3,4,1],7))
+console.log(bestSum([1,25,4,10],100))
