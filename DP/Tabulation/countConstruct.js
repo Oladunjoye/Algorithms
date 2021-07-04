@@ -8,7 +8,7 @@ function countConstruct(target, wordBank) {
         let current = target.slice(0, i);
         let newString = current + word;
         if (target.startsWith(newString)) {
-          table[i + word.length] += 1;
+          table[i + word.length] += table[i];
         }
       }
     }
@@ -29,6 +29,7 @@ console.log(
 console.log(
   countConstruct('skateboard', ['bo', 'd', 'ate', 't', 'ska', 'sk', 'boar'])
 );
+console.log(countConstruct('purple', ['purp', 'p', 'ur', 'le', 'purpl']));
 
 // console.log('abc'.slice(0, 0) == "");
 // console.log('abc'.slice(0, 1));
