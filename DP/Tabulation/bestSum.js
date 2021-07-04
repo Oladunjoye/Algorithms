@@ -17,3 +17,5 @@ function bestSum(target, numbers) {
 }
 
 console.log(bestSum(7, [1,3, 4,7]));
+console.log(bestSum(8, [2,3, 5]));
+
