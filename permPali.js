@@ -8,15 +8,15 @@ function permPali(str) {
     }
   }
 
-  console.log(map);
 
   for (key in map) {
     if (map[key] != 2) count++;
   }
 
-  console.log(count);
 
   return count <= 1;
 }
 
 console.log(permPali('Tact Coa'));
+
+
