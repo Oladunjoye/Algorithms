@@ -263,5 +263,5 @@ list.reverse()
 
 
 // list.traverse()
-// console.log(list)
+console.log(list)
 
