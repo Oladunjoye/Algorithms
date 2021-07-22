@@ -88,7 +88,7 @@ graph.addEdge('Beijing', 'Paris');
 
 console.log(graph.adjacencyList);
 console.log('************');
-console.log(graph.depthFirstSearch('Tokyo'));
+// console.log(graph.depthFirstSearch('Tokyo'));
 
 // console.log(graph.adjacencyList);
 //addEdege
