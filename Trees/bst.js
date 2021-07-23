@@ -1,10 +1,4 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-}
+'use strict';
 
 module.exports = class BST {
   constructor(root) {
@@ -256,18 +250,25 @@ module.exports = class BST {
   }
 };
 
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
 // let rootNode = new Node(7);
 // let tree = new BST(7);
 // tree.left = new Node(5);
 // tree.right = new Node(12);
-console.log('yes');
-let tree = new BST(10);
+// let tree = new BST(10);
 
-tree.insertIterative(6);
-tree.insertIterative(15);
-tree.insertIterative(3);
-tree.insertIterative(8);
-tree.insertIterative(20);
+// tree.insertIterative(6);
+// tree.insertIterative(15);
+// tree.insertIterative(3);
+// tree.insertIterative(8);
+// tree.insertIterative(20);
 // tree.insertIterative(6);
 // tree.insertIterative(6);
 
@@ -290,7 +291,7 @@ tree.insertIterative(20);
 // tree.preOrderTraversal(tree.root);
 // console.log('********');
 // tree.inOrderTraversalBack(tree.root);
-console.log(tree.breadthFirstSearch());
+// console.log(tree.breadthFirstSearch());
 // console.log('********');
 // tree.postOrderTraversal(tree.root);
 
