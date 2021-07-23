@@ -46,4 +46,4 @@ tree.insertIterative(8);
 tree.insertIterative(20);
 
 
-console.log(listDepths(tree))
+console.log(listDepths(tree.root))

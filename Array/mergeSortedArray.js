@@ -11,7 +11,7 @@ let results = []
     let j = 0
 
     while(i <= arr1.length && j <= arr2.length){
-        console.log(i,j, arr1[i], arr2[j], results)
+        // console.log(i,j, arr1[i], arr2[j], results)
         if(arr1[i] <= arr2[j] && arr1[i] !== undefined){
             results.push(arr1[i])
             i++

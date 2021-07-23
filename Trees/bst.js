@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-class BST {
+module.exports = class BST {
   constructor(root) {
     this.root = new Node(root);
   }
@@ -238,31 +238,29 @@ class BST {
     return result[k - 1];
   }
 
-  breadthFirstSearch(){
-
-    let node = this.root
+  breadthFirstSearch() {
+    let node = this.root;
     let queue = [];
     let result = [];
 
-    queue.push(node)
+    queue.push(node);
 
-    while(queue.length){
+    while (queue.length) {
       node = queue.shift();
       result.push(node.value);
-      if(node.left) queue.push(node.left)
-      if(node.right) queue.push(node.right)
-
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
 
     return result;
   }
-}
+};
 
 // let rootNode = new Node(7);
 // let tree = new BST(7);
 // tree.left = new Node(5);
 // tree.right = new Node(12);
-console.log("yes")
+console.log('yes');
 let tree = new BST(10);
 
 tree.insertIterative(6);
@@ -300,24 +298,20 @@ console.log(tree.breadthFirstSearch());
 // console.log(tree.binarySearch(4));
 
 // console.log(tree);
-function twoValueSum(arr, target){
-
-  array.sort((a,b)=> a-b)
+function twoValueSum(arr, target) {
+  array.sort((a, b) => a - b);
   let left = 0;
-  let right = array.length-1
+  let right = array.length - 1;
 
-  while(left < right){
+  while (left < right) {
+    let sum = array[left] + array[right];
 
-    let sum = array[left] + array[right]
-
-    if(sum == target){
-      return [array[left], array[right]]
-    }
-    else if(sum > target){
-      right--
-    }
-    else{
-      left++
+    if (sum == target) {
+      return [array[left], array[right]];
+    } else if (sum > target) {
+      right--;
+    } else {
+      left++;
     }
   }
 }
