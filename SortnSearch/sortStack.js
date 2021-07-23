@@ -1,4 +1,4 @@
-const Stack = require('./Stack/stack');
+const Stack = require('../Stack/stack');
 
 function sortStack(stack) {
   let sortedStack = new Stack();

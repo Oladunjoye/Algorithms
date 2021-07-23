@@ -1,4 +1,4 @@
-const BST = require('./Trees/bst');
+const BST = require('./bst');
 
 class Node{
   constructor(val){
