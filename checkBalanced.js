@@ -1,3 +1,0 @@
-function checkBalanced(tree){
-  
-}
