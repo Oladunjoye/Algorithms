@@ -1,8 +1,9 @@
 'use strict';
 
-module.exports = class BST {
+class BST {
   constructor(root) {
     this.root = new Node(root);
+    this.result = [];
   }
 
   insertIterative(newvalue) {
@@ -75,6 +76,24 @@ module.exports = class BST {
 
       this.preOrderTraversal(currentNode.right);
     }
+  }
+
+  inOrderWithNull(currentNode) {
+    let stack = [currentNode];
+    let result = [];
+
+    while (stack.length > 0) {
+      let current = stack.pop();
+
+      result.push(current ? current.value : null);
+
+      if (current) {
+        stack.push(current.left);
+        stack.push(current.right);
+      }
+    }
+
+    return result;
   }
 
   //in order backwards
@@ -248,7 +267,7 @@ module.exports = class BST {
 
     return result;
   }
-};
+}
 
 class Node {
   constructor(value) {
@@ -259,16 +278,15 @@ class Node {
 }
 
 // let rootNode = new Node(7);
-// let tree = new BST(7);
+let tree = new BST(4);
 // tree.left = new Node(5);
 // tree.right = new Node(12);
 // let tree = new BST(10);
 
-// tree.insertIterative(6);
-// tree.insertIterative(15);
-// tree.insertIterative(3);
-// tree.insertIterative(8);
-// tree.insertIterative(20);
+tree.insertIterative(3);
+tree.insertIterative(7);
+tree.insertIterative(6);
+tree.insertIterative(1);
 // tree.insertIterative(6);
 // tree.insertIterative(6);
 
@@ -293,26 +311,7 @@ class Node {
 // tree.inOrderTraversalBack(tree.root);
 // console.log(tree.breadthFirstSearch());
 // console.log('********');
-// tree.postOrderTraversal(tree.root);
+console.log(tree.inOrderWithNull(tree.root));
 
 // console.log(tree.binarySearch(14));
 // console.log(tree.binarySearch(4));
-
-// console.log(tree);
-function twoValueSum(arr, target) {
-  array.sort((a, b) => a - b);
-  let left = 0;
-  let right = array.length - 1;
-
-  while (left < right) {
-    let sum = array[left] + array[right];
-
-    if (sum == target) {
-      return [array[left], array[right]];
-    } else if (sum > target) {
-      right--;
-    } else {
-      left++;
-    }
-  }
-}

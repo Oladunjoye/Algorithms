@@ -18,7 +18,7 @@ class Queue {
   }
 }
 
-module.exports = class Graph {
+class Graph {
   constructor() {
     this.adjacencyList = {};
   }
@@ -157,15 +157,16 @@ g.addEdge('Tope', 12);
 g.addEdge('Tope', 22);
 g.addEdge('Tope', 42);
 
-g.addEdge('Tope', 3);
-g.addEdge('Tope', 4);
-g.addEdge('Tope', 2);
-g.removeEdge('Tope', 2);
+g.addEdge('Togo', 3);
+g.addEdge('Togo', 4);
+g.addEdge('Togo', 2);
+// g.removeEdge('Tope', 2);
 
-console.log(g.adjacencyList);
+// console.log(g.adjacencyList);
 
-console.log(g.breadthFirst(1));
-// console.log(g.depthFirstIterative(1));
+// console.log(g.breadthFirst(1));
+console.log(g.depthFirstIterative(1));
+console.log(g.depthFirstRecursive(1));
 
 // g.removeVertex(1);
 
