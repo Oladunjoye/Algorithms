@@ -150,6 +150,35 @@ class Graph {
     }
     return Object.keys(topNums);
   }
+
+  topSort2() {
+    let visited = {};
+    let topNums = {};
+    let adjacencyList = this.adjacencyList;
+    let vertices = Object.keys(adjacencyList)
+    let current = this.root;
+    let n = vertices.length;
+
+    function dfs(vertex, n , visited, topNums) {
+
+      let neighbours = adjacencyList[vertex]
+
+      for(let neighbour of neighbours){
+
+
+        dfs(neighbour, n, visited, topNums)
+
+
+      }
+
+      visited[vertex] = true
+      topNums[vertex]= n
+
+
+    }
+
+    dfs(vertex, n , visited, topNums);
+  }
 }
 
 let g = new Graph();
