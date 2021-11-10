@@ -99,9 +99,7 @@ class weightedGraph {
     this.graph[src].push(newVal);
   }
 
-  dijkstra(src, dest){
-    
-  }
+  dijkstra(src, dest) {}
 }
 
 let graph = new weightedGraph();
@@ -115,8 +113,8 @@ graph.addEdge('D', 'E', 3);
 graph.addEdge('D', 'F', 1);
 graph.addEdge('E', 'F', 1);
 
-console.log('*******');
-console.log(graph.graph);
+// console.log('*******');
+// console.log(graph.graph);
 
 // let pq = new PriorityQueue();
 // pq.enqueue('A',19);
@@ -133,3 +131,75 @@ console.log(graph.graph);
 // console.log(pq.dequeue())
 
 // console.log(pq.values);
+
+function canSum(target, arr) {
+  function helper(n) {
+    if (n === 0) return [];
+    if (n < 0) return null;
+
+    let result = null;
+    for (let val of arr) {
+      let newResult = helper(n - val);
+
+      if (newResult != null) {
+        let combo = [...newResult, val];
+
+        if (result === null || combo.length < result.length) result = combo;
+      }
+    }
+    return result;
+    // return []
+  }
+
+  return helper(target);
+}
+
+// console.log(canSum(7, [3,12,4,7]))
+
+function canConstruct(target, letters) {
+  function helper(target) {
+    if (target === '') return true;
+    //other base cases
+
+    for (let subString of letters) {
+      if (target.startsWith(subString)) {
+        if (helper(target.slice(subString.length)) === true) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  return helper(target);
+}
+
+// console.log(canConstruct("board", ['bor', "ard", "oar", "d"]))
+
+let suffixWays = [['de'], ['ef']];
+
+// let resultA = suffixWays.map((word) => ['a',...word]);
+
+
+function allConstruct(target, letters){
+
+function helper(target){
+  if(target == "")return [[]]
+
+ let result  = []
+  for(let subString of letters){
+    if(target.startsWith(subString)){
+      let suffixWays = helper(target.slice(subString.length))
+      let combined = suffixWays.map((word)=> [subString,...word] )
+      result.push(...combined)
+    }
+  }
+
+  return result
+}
+
+  return helper(target)
+}
+
+
+console.log(allConstruct("board", ["bo", "b","ar","d", "oard","ob"]))
